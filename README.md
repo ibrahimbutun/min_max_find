@@ -7,8 +7,8 @@ Bu program, kullanıcıdan bir dizi elemanları girmesini ve ardından bir sayı
 1. **Programı Çalıştırma:** 
     - Java yüklü olmalıdır.
     - Terminal veya komut istemcisinde programın bulunduğu dizine git.
-    - Kodu derlemek için: `javac EnYakinSayi.java`
-    - Programı çalıştırmak için: `java EnYakinSayi`
+    - Kodu derlemek için: `javac Main.java`
+    - Programı çalıştırmak için: `java Main`
 
 2. **Dizi Elemanlarını Girme:**
     - İlk olarak dizi uzunluğu girilir.

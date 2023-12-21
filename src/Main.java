@@ -1,19 +1,54 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) throws Exception {
-        int list[] = { 1, 3, 5, 7, -9, 11, -1, -3 };
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        int min = list[0];
-        int max = list[0];
+        // Kullanıcıdan dizi uzunluğunu al
+        System.out.print("Dizi uzunluğunu girin: ");
+        int uzunluk = scanner.nextInt();
 
-        for (int i : list) {
-            if (i < min) {
-                min = i;
-            }
-            if (i > max) {
-                max = i;
+        // Dizi elemanlarını kullanıcıdan al
+        int[] dizi = new int[uzunluk];
+        System.out.println("Dizi elemanlarını girin:");
+        for (int i = 0; i < uzunluk; i++) {
+            System.out.print("Eleman " + (i + 1) + ": ");
+            dizi[i] = scanner.nextInt();
+        }
+
+        // Kullanıcıdan bir sayı al
+        System.out.print("Bir sayı girin: ");
+        int girilenSayi = scanner.nextInt();
+
+        // Diziyi sırala
+        Arrays.sort(dizi);
+
+        int enKucukBuyuk = -1; // Girilen sayıdan büyük en yakın sayı
+        int enBuyukKucuk = -1; // Girilen sayıdan küçük en yakın sayı
+
+        for (int i = 0; i < uzunluk; i++) {
+            if (dizi[i] < girilenSayi) {
+                enBuyukKucuk = dizi[i];
+            } else if (dizi[i] > girilenSayi) {
+                enKucukBuyuk = dizi[i];
+                break;
             }
         }
-        System.out.println("min deger : " + min);
-        System.out.println("max deger : " + max);
+
+        // Sonuçları yazdır
+        if (enBuyukKucuk != -1) {
+            System.out.println("Girilen sayıdan küçük en yakın sayı: " + enBuyukKucuk);
+        } else {
+            System.out.println("Girilen sayıdan küçük bir sayı bulunamadı.");
+        }
+
+        if (enKucukBuyuk != -1) {
+            System.out.println("Girilen sayıdan büyük en yakın sayı: " + enKucukBuyuk);
+        } else {
+            System.out.println("Girilen sayıdan büyük bir sayı bulunamadı.");
+        }
+        scanner.close();
     }
+
 }
